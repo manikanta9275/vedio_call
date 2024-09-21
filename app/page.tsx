@@ -11,10 +11,11 @@ export default function Home() {
   const [roomID, setRoomID] = useState("");
   const router = useRouter();
 
+
   useEffect(() => {
     setFullName("");
   }, [setFullName]);
-
+  
   return (
     <div className="w-full h-screen">
       <section className="bg-gray-950 text-white">

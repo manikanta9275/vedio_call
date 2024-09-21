@@ -12,8 +12,9 @@ const Room = ({ params }: { params: { roomid: string } }) => {
   // useRef to get access to the DOM element
   const meetingRef = useRef<HTMLDivElement | null>(null);
 
+  
   useEffect(() => {
-    const myMeeting = async (element: HTMLDivElement | null) => {
+    const myMeeting: (element: HTMLDivElement | null) => Promise<void> = async (element) =>{
       if (!element) return;
 
       // generate Kit Token
