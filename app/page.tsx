@@ -13,28 +13,28 @@ export default function Home() {
 
   useEffect(() => {
     setFullName("");
-  }, []);
+  }, [setFullName]);
+
   return (
     <div className="w-full h-screen">
       <section className="bg-gray-950 text-white">
         <div className="mx-auto max-w-screen-xl px-4 py-32 flex-col gap-24 flex h-screen items-center">
           <Image src="/logo.svg" alt="logo" width={200} height={200} />
           <div className="mx-auto max-w-4xl text-center">
-            <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text  font-extrabold text-transparent text-5xl">
-              {`Have a smooth meeting`}
+            <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-extrabold text-transparent text-5xl">
+              Have a smooth meeting
             </h1>
             <h1 className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text font-extrabold text-transparent text-5xl">
               <span className="block">with team members</span>
             </h1>
             <p className="mx-auto mt-6 max-w-xl sm:text-xl/relaxed">
-              Zegocloud is a global communication service provider which
-              provides them developer-friendly and powerful SDK & APIs
+              Zegocloud is a global communication service provider that provides developer-friendly and powerful SDK & APIs.
             </p>
             <div className="flex items-center justify-center gap-4 mt-6">
               <input
                 type="text"
                 id="name"
-                onChange={(e) => setFullName(e.target.value.toString())}
+                onChange={(e) => setFullName(e.target.value)}
                 className="border rounded-md focus:border-transparent focus:outline-none focus:ring-0 px-4 py-2 w-full text-black"
                 placeholder="Enter your name"
               />
