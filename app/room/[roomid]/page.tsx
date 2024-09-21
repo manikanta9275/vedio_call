@@ -9,15 +9,12 @@ const Room = ({ params }: { params: { roomid: string } }) => {
   const { fullName } = useUser();
   const roomID = params.roomid;
 
-  // useRef to get access to the DOM element
   const meetingRef = useRef<HTMLDivElement | null>(null);
 
-  
   useEffect(() => {
-    const myMeeting: (element: HTMLDivElement | null) => Promise<void> = async (element) =>{
+    const myMeeting: (element: HTMLDivElement | null) => Promise<void> = async (element) => {
       if (!element) return;
 
-      // generate Kit Token
       const appID = parseInt(process.env.NEXT_PUBLIC_ZEGO_APP_ID!);
       const serverSecret = process.env.NEXT_PUBLIC_ZEGO_SERVER_SECRET!;
       const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
@@ -29,21 +26,13 @@ const Room = ({ params }: { params: { roomid: string } }) => {
         720
       );
 
-      // Create instance object from Kit Token.
       const zp = ZegoUIKitPrebuilt.create(kitToken);
-      // start the call
       zp.joinRoom({
         container: element,
         sharedLinks: [
           {
             name: "manikanta",
-            url:
-              window.location.protocol +
-              "//" +
-              window.location.host +
-              window.location.pathname +
-              "?roomID=" +
-              roomID,
+            url: `${window.location.protocol}//${window.location.host}${window.location.pathname}?roomID=${roomID}`,
           },
         ],
         scenario: {
