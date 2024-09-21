@@ -12,7 +12,7 @@ const Room = ({ params }: { params: { roomid: string } }) => {
   const meetingRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const myMeeting: (element: HTMLDivElement | null) => Promise<void> = async (element) => {
+    const myMeeting = async (element: HTMLDivElement | null) => {
       if (!element) return;
 
       const appID = parseInt(process.env.NEXT_PUBLIC_ZEGO_APP_ID!);
